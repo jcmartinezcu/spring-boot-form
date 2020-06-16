@@ -48,9 +48,12 @@ public class Usuario {
 	private Integer cuenta;
 
 	@NotNull
-	//@DateTimeFormat(pattern  = "yyyy-MM-dd")
+	// @DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Past
 	private Date fechaNacimiento;
+
+	@NotEmpty
+	private String pais;
 
 	public String getUsername() {
 		return username;
@@ -114,6 +117,14 @@ public class Usuario {
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 
 }
