@@ -6,7 +6,10 @@
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
-
+	<div class="alert alert-success">
+		<span
+			th:text="'Tiempo trascurrido: ' + ${tiempoTrasncurrido} + ' en milisegundos'"></span>
+	</div>
 	<h3 th:text="${titulo}"></h3>
 	<div class="container">
 		<form th:action="@{/form}" th:object="${usuario}" method="post">
@@ -23,9 +26,11 @@
 				<div th:each="genero: ${genero}" class="row col-sm-2">
 					<input type="radio" th:field="*{genero}" th:value="${genero}"
 						class="form-control col-sm-2"> <label
-						th:for="${#ids.prev('genero')}" th:text="${genero}" class="col-form-label col-sm-2"></label>
+						th:for="${#ids.prev('genero')}" th:text="${genero}"
+						class="col-form-label col-sm-2"></label>
 				</div>
-				<div th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}" class="alert alert-danger"></div>
+				<div th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"
+					class="alert alert-danger"></div>
 			</div>
 
 			<div class="form-group row">
@@ -37,7 +42,8 @@
 							th:value="${pais.id}"></option>
 					</select>
 				</div>
-				<div th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}" class="alert alert-danger"></div>
+				<div th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"
+					class="alert alert-danger"></div>
 			</div>
 			<div class="form-group row">
 				<label class="col-form-label col-sm-2">Roles</label>
@@ -45,9 +51,11 @@
 					<input type="checkbox" th:field="*{roles}" th:value="${role.id}"
 						th:checked="${#lists.contains(usuario.roles, role)}"
 						class="form-control col-sm-2"> <label
-						th:for="${#ids.prev('roles')}" th:text="${role.nombre}" class="col-form-label col-sm-2"></label>
+						th:for="${#ids.prev('roles')}" th:text="${role.nombre}"
+						class="col-form-label col-sm-2"></label>
 				</div>
-				<div th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}" class="alert alert-danger"></div>
+				<div th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"
+					class="alert alert-danger"></div>
 			</div>
 			<div class="form-group row">
 				<label class="col-form-label col-sm-2" for="identificador">Identificador</label>
@@ -64,7 +72,8 @@
 					<input type="text" id="nombre" th:field="*{nombre}"
 						class="form-control">
 				</div>
-				<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="alert alert-danger"></div>
+				<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+					class="alert alert-danger"></div>
 			</div>
 			<div class="form-group row">
 				<label class="col-form-label col-sm-2" for="apellido">Apellido</label>
@@ -99,7 +108,8 @@
 					<input type="text" id="email" th:field="*{email}"
 						class="form-control">
 				</div>
-				<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger"></div>
+				<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+					class="alert alert-danger"></div>
 			</div>
 			<div class="form-group row">
 				<label class="col-form-label col-sm-2" for="cuenta">Cuenta</label>
@@ -107,10 +117,12 @@
 					<input type="number" id="cuenta" th:field="*{cuenta}"
 						class="form-control">
 				</div>
-				<div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}" class="alert alert-danger"></div>
+				<div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"
+					class="alert alert-danger"></div>
 			</div>
 			<div class="form-group row">
-				<label class="col-form-label col-sm-2" for="fechaNacimiento">Fecha Nacimiento</label>
+				<label class="col-form-label col-sm-2" for="fechaNacimiento">Fecha
+					Nacimiento</label>
 				<div class="col-sm-4">
 					<input type="date" id="fechaNacimiento"
 						th:field="*{fechaNacimiento}" placeholder="yyyy-MM-dd"
